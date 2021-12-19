@@ -1,6 +1,6 @@
 <?php
-  require_once 'connec.php';
-
+  require_once '../connec.php';
+  
   $urlPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
   if (($urlPath === '/book.php') && !empty($_GET)) {
       $letter = $_GET['letter'];

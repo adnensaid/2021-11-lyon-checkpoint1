@@ -1,4 +1,4 @@
-<?php include_once '../traitement.php'; ?>
+<?php include_once 'traitement.php'; ?>
 <!doctype html>
 <html lang="en">
 <head>
