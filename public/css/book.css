@@ -1,5 +1,24 @@
 @import url('https://fonts.googleapis.com/css?family=Bilbo+Swash+Caps&display=swap');
 
+/* classes */
+.mb-1{
+    margin-bottom: 1rem;
+}
+.btn{
+    border: none;
+    outline: 0;
+    padding: .5rem .5rem;
+    border-radius: .5rem;
+    cursor: pointer;
+    font-weight: bold;
+}
+.title{
+    border-bottom: .1rem solid var(--dark);
+    text-align: center;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1.8rem;
+}
+
 body {
     background-image: url('../image/background.jpeg');
     background-repeat: no-repeat;
@@ -7,9 +26,9 @@ body {
 }
 
 main {
-    padding-top: 4em;
     font-size: 26pt;
     font-family: 'Bilbo Swash Caps', cursive;
+    padding-top: 4rem;
 }
 
 .whisky, .empty-whisky, .inkpen, .page {
@@ -20,7 +39,6 @@ main {
     display: flex;
     width: auto;
     flex-basis : 65%;
-    margin:1em;
 }
 
 .page {
@@ -28,11 +46,14 @@ main {
     padding: 3vw;
     width: 50%;
     background-blend-mode: multiply;
+    display: flex;
+    flex-direction: column;
 }
 
 .leftpage {
     background: url('../image/paper.png'), linear-gradient(270deg, rgba(157,158,137,1) 0%, rgba(233,226,187,1) 5%, rgba(255,251,203,1) 18%);
     border-radius: 24px 40% 40% 24px/8px 8px 8px 8px;
+    overflow: auto;
 }
 
 .rightpage {
@@ -40,71 +61,162 @@ main {
     border-radius:  40% 24px 24px 40%/8px 8px 8px 8px;
     overflow: auto;
 }
+/* form*/
 
-/* bonus */
-.desktop{
-    display: flex;
-    flex-direction: column;
+.form-label{
+    display: block;
+    margin: 0;
+    line-height: 2rem;
+    font-size: 1.6rem;
 }
+.form-control{
+    width: 80%;
+    padding: 0.2rem 1rem;
+    border: 0;
+    border-radius: .5rem;
+    font-size: 1.6rem;
+    font-family: 'Bilbo Swash Caps', cursive;
+
+}
+.form-control:focus{
+    outline: 0;
+    box-shadow: 0 0 10px var(--shadow);
+}
+/* tab payments */
+.table{
+    width: 100%;
+}
+.table tr td{
+    text-align: right;
+    font-size: 1.6rem;
+}
+.total td:last-child{
+    border-top: .1rem solid var(--dark);
+}
+/* layout */
+
+.desktop{
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto 1fr;
+    grid-auto-flow: row;
+}
+.alphabetical{
+    grid-column: 1 / 5;
+    grid-row: 1 / 2;
+}
+.whisky, .empty-whisky{
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+}
+.inkpen{
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+    align-self: end;
+}
+.desktop img{
+    max-width: 15rem;
+}
+/* bonus */
+
 .alphabetical{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: white;
-    width: 100%;
-    padding: .5rem 0;
+    background: var(--gray);
+    font-family: 'Roboto Mono', monospace;
+    color: var(--dark);
+    font-size: 1.4rem;
+    padding: 0.5rem 1rem;
+    font-weight: 100;
+    margin-top: 1.5rem;
 }
-
-
+.empty-whisky{
+    display: none;
+}
 /*  medias queries */
 @media only screen and (min-width: 1200px){
-    .desktop-content{
-        display: flex;
-        flex-flow: row nowrap;
-    }
-    .pages{
-        flex-basis: 80%;
-    }
-    .empty-whisky{
-        display: none;
+    .desktop{
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        grid-template-rows: auto 1fr;
+        grid-auto-flow: row;
     }
 }
 @media only screen and (min-width: 1100px) and (max-width: 1200px) {
-    .desktop-content{
-        display: flex;
-        flex-flow: row nowrap;
+    .pages{
+        grid-column: 2 / 3;
+        margin: 1rem 4rem 1rem 1rem;
     }
-    .inkpenImg{
+    .inkpen{
+        display: none;
+    }
+}
+@media only screen and (min-width: 1000px) and (max-width: 1100px) {
+    .pages{
+        grid-column: 2 / 3;
+        margin: 1rem 4rem 1rem 1rem;
+    }
+    .inkpen{
+        display: none;
+    }
+    .whisky{
         display: none;
     }
     .empty-whisky{
         display: block;
     }
+}
+
+@media only screen and (min-width: 800px) and (max-width: 1000px) {
+    
     .whisky{
         display: none;
     }
-}
-@media only screen and (min-width: 800px) and (max-width: 1000px) {
-    .inkpenImg{
+    .inkpen{
         display: none;
     }
-    .whiskyImg{
-        display: none;
+    .pages{
+        grid-column: 1 / 4;
+        margin: 0 1rem;
     }
 }
 @media only screen and (max-width: 800px) {
     .desktop{
-    }
-    .inkpenImg{
-        display: none;
-    }
-    .whiskyImg{
-        display: none;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        column-gap: .8rem;
     }
     .pages{
-        display: flex;
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
         flex-direction: column-reverse;
-        align-items: center;
+        flex-basis: 100%;
+    }
+    .alphabetical{
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+        flex-direction: column;
+        padding: 0 1rem;
+        margin: 0;
+    }
+    .page{
+        width: auto;
+        height: 100%;
+        margin-bottom: 1rem;
+
+    }
+    .whisky{
+        display: none;
+    }
+    .inkpen{
+        display: none;
+    }
+    .navbar{
+        padding: 5px;
+    }
+    .navbar a{
+        font-size: .8em;
     }
 
 }

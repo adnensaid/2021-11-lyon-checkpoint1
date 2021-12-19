@@ -7,11 +7,9 @@ img{
 ul{
     list-style: none;
 }
-/*  header */
-.header{
-    display: flex;
-    flex-direction: column;
-    background: red;
+a{
+    text-decoration: none;
+    color: var(--dark);
 }
 :root {
     --dark: rgba(18, 18, 18, 0.62);
@@ -20,6 +18,7 @@ ul{
     --paper: #e6dfad;
     --paper-dark: #c7c196;
     --error: indianred;
+    --gray: #d2cdc3;
     scroll-behavior: smooth;
 
 }
