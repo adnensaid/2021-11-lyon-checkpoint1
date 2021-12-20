@@ -30,7 +30,7 @@
                     </div>
                     <div class="mb-1">
                         <label for="payment" class="form-label">Payment</label>
-                        <input type="text" name="payment" class="form-control"> 
+                        <input type="number" name="payment" class="form-control"> 
                         <ul class="error"><?= $errors['payment'] ?? ''; ?></ul>
                     </div>
                     <div>
