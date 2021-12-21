@@ -12,7 +12,7 @@ else {
     $query = "SELECT * FROM bribe ORDER BY name DESC";
 }
 
-$pdo = new PDO(DSN, USER, PASSWORD);
+$pdo = new PDO(DSN, USER, PASS);
 $statement = $pdo->query($query);
 $bribes = $statement->fetchAll(PDO::FETCH_ASSOC);   
 $total = 0;
