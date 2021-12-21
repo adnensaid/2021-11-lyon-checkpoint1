@@ -41,7 +41,7 @@
 
             <div class="page rightpage">
                 <!-- TODO : Display bribes and total paiement -->
-                <p class="title"><?= $_GET['letter'] ?? 'S'; ?></p>
+                <p class="title"><?= $_GET['letter'] ?? ''; ?></p>
                 <div>
                     <table class="table">
                        <tbody>
